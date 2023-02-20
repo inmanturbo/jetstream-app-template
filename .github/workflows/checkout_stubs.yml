@@ -17,8 +17,11 @@ jobs:
         with:
           path: ./
           ref: stubs
+      - name: Checkout stubs
+        uses: Bhacaz/checkout-files@v2
+        with:
+          files: ./
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update stubs
-          branch: ${{ github.head_ref }}
