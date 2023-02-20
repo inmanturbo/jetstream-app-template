@@ -22,7 +22,10 @@ jobs:
           git status
           git fetch origin
           git branch -a -v
-          git switch -c stubs
+          git switch stubs
+          ls -la
+          git pull origin stubs
+          ls -la
           git switch ${GITHUB_REF##*/}
           git checkout stubs ./
       # - name: Copy
