@@ -1,9 +1,11 @@
 name: Check & fix styling
-
 on: 
-  - push
-  - pull_request
-
+  push:
+   branches-ignore:
+     - 'stubs'
+  pull_request:
+   branches-ignore:
+     - 'stubs'
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
