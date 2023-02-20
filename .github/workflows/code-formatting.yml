@@ -7,19 +7,16 @@ on:
    branches-ignore:
      - 'stubs'
 jobs:
-  php-cs-fixer:
+  phplint:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
-
-      - name: Run PHP CS Fixer
-        uses: docker://oskarstark/php-cs-fixer-ga
+          fetch-depth: 2
+      - name: "laravel-pint"
+        uses: aglipanci/laravel-pint-action@0.1.0
         with:
-          args: --config=phpcs.php --allow-risky=yes
+          preset: laravel
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
