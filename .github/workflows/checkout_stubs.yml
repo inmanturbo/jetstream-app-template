@@ -1,5 +1,5 @@
-name: Checkout stubs
-on: 
+name: Check out Stubs Branch
+on:
   push:
    branches-ignore:
      - 'stubs'
@@ -10,12 +10,13 @@ jobs:
   checkout-stubs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: 'stubs'
-          path: 'stubs ./'
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update stubs
-          branch: ${{ github.head_ref }}
+    - name: Checkout Stubs Branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'stubs'  # checkout 'stubs' branch
+        fetch-depth: 0
+    - name: Commit Stubs Changes
+      run: |
+        git add .
+        git commit -m "Checkout Stubs Branch changes"
+        git push
