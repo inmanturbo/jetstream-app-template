@@ -1,0 +1,24 @@
+name: Check & fix styling
+on: 
+  push:
+   branches-ignore:
+     - 'stubs'
+  pull_request:
+   branches-ignore:
+     - 'stubs'
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: "laravel-pint"
+        uses: aglipanci/laravel-pint-action@0.1.0
+        with:
+          preset: laravel
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Fix styling
