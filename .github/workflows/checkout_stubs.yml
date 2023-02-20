@@ -23,7 +23,7 @@ jobs:
           git fetch origin
           git branch -a -v
           git switch -c stubs
-          git switch ${{ github.ref }}
+          git switch ${GITHUB_REF##*/}
           git checkout stubs ./
       # - name: Copy
       #   uses: andstor/copycat-action@v3
