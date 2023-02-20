@@ -21,16 +21,16 @@ jobs:
           git config user.email "<>"
           git status
           git describe
-      - name: Copy
-        uses: andstor/copycat-action@v3
-        with:
-          personal_token: ${{ secrets.ACCESS_TOKEN }}
-          src_branch: stubs
-          src_path: /.
-          dst_path: /.
-          dst_branch: ${{ github.ref }}
-          dst_owner: inmanturbo
-          dst_repo_name: jetstream-app-template
+      # - name: Copy
+      #   uses: andstor/copycat-action@v3
+      #   with:
+      #     personal_token: ${{ secrets.ACCESS_TOKEN }}
+      #     src_branch: stubs
+      #     src_path: /.
+      #     dst_path: /.
+      #     dst_branch: ${{ github.ref }}
+      #     dst_owner: inmanturbo
+      #     dst_repo_name: jetstream-app-template
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
