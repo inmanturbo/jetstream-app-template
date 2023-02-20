@@ -21,7 +21,6 @@ jobs:
         uses: Bhacaz/checkout-files@v2
         with:
           files: ./
-          token: ${{ github.token }}
           branch: stubs
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
