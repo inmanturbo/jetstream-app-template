@@ -22,7 +22,7 @@ jobs:
           dst_path: /.
           dst_branch: ${{ github.ref }}
           dst_owner: inmanturbo
-          dst_repo_name: ${{ github.repository }}
+          dst_repo_name: jetstream-app-template
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
