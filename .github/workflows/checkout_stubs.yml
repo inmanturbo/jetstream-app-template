@@ -13,12 +13,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - uses: actions/checkout@v2
-        with:
-          path: ./
-          ref: stubs
       - name: Checkout stubs
-        uses: Bhacaz/checkout-files@v2
+        uses: Bhacaz/checkout-files@v1
         with:
           files: ./
           branch: stubs
