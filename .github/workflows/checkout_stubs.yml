@@ -1,5 +1,5 @@
 name: Checkout stubs
-on:
+on: 
   push:
    branches-ignore:
      - 'stubs'
@@ -10,18 +10,12 @@ jobs:
   checkout-stubs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
-          fetch-depth: 2
-      - name: Checkout stubs
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git fetch origin
-          git switch stubs
-          git switch ${GITHUB_REF##*/}
-          git checkout stubs ./
+          ref: 'stubs'
+          path: 'stubs ./'
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update stubs
+          branch: ${{ github.head_ref }}
