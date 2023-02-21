@@ -10,9 +10,9 @@ on:
     inputs:
       commit_message:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Update stubs'
+        description: 'Commit message'
         # Default value if no value is explicitly provided
-        default: 'Main'
+        default: 'Update Stubs'
         # Input has to be provided for the workflow to run
         required: true
 
