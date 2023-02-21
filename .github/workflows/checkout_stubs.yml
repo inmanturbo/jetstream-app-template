@@ -13,31 +13,14 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - name: git
+      - name: Checkout stubs
         run: |
-          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git --version
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          git status
           git fetch origin
-          git branch -a -v
           git switch stubs
-          ls -la
-          git pull origin stubs
-          ls -la
           git switch ${GITHUB_REF##*/}
           git checkout stubs ./
-      # - name: Copy
-      #   uses: andstor/copycat-action@v3
-      #   with:
-      #     personal_token: ${{ secrets.ACCESS_TOKEN }}
-      #     src_branch: stubs
-      #     src_path: /.
-      #     dst_path: /.
-      #     dst_branch: ${{ github.ref }}
-      #     dst_owner: inmanturbo
-      #     dst_repo_name: jetstream-app-template
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
